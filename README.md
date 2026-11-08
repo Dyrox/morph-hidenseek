@@ -116,6 +116,15 @@ export JAVA_HOME=/opt/homebrew/opt/openjdk@25/libexec/openjdk.jdk/Contents/Home
 
 截图保存在 `build/run/clientGameTest/screenshots/`。还没有在两台电脑之间做过真实联机测试。
 
+### CI 与发布
+
+- **Build**（`.github/workflows/build.yml`）：推送到 `main` 或提交 PR 时，会编译、跑单元测试、打包，jar 放在这次运行的 Artifacts 里。客户端游戏测试需要图形界面，CI 里不跑，发布前请在本机运行 `runClientGameTest`。
+- **Release**（`.github/workflows/release.yml`）：在 GitHub 上发布一个 Release，标签写 `v` 加上 `gradle.properties` 里的 `mod_version`（比如 `v0.13.0`），CI 就会构建对应版本，把 `morph-hide-and-seek-<版本>.jar` 附到这个 Release 上。标签和版本号对不上时，构建会直接失败，不会附上错版本的 jar。
+
+```sh
+gh release create v0.13.0 --title "0.13.0" --notes "见 CHANGELOG.md"
+```
+
 其他文档：[动物移动速度](docs/MOVEMENT.md)、[游戏内测试记录](docs/TESTING.md)、[大厅界面](docs/LOBBY_UI.md)、[图标来源](docs/ASSETS.md)。
 
 ## 许可
