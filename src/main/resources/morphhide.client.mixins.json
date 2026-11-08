@@ -1,0 +1,1 @@
+{"required":true,"package":"dev.morphhide.client.mixin","compatibilityLevel":"JAVA_25","client":["TitleScreenMixin","WallNameTagMixin","HideDisguisedPlayerMixin","InventoryDisguiseMixin","HideDisguisedHandsMixin","TeammateGlowMixin","TeammateOutlineColorMixin"],"injectors":{"defaultRequire":1}}

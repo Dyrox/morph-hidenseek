@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "morphhide",
+  "version": "${version}",
+  "name": "Morph Hide n Seek",
+  "description": "Blend into the herd. Outsmart the hunters. A round-based animal hide-and-seek game.",
+  "authors": [
+    "Morph Hide & Seek"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "mixins": [
+    "morphhide.mixins.json",
+    {
+      "config": "morphhide.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "entrypoints": {
+    "main": [
+      "dev.morphhide.MorphHide"
+    ],
+    "client": [
+      "dev.morphhide.client.MorphHideClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
